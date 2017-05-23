@@ -5,12 +5,15 @@
 
 FROM r-base:3.3.2 
 
-# Install compiler RUN apt-get install --yes \ 
-build-essential \ 
-gcc-multilib \ 
-apt-utils \ 
-zlib1g-dev \
-libxml2-dev 
+# Install compiler 
+
+RUN apt-get install --yes \ 
+      build-essential \ 
+      gcc-multilib \ 
+      apt-utils \ 
+      zlib1g-dev \
+      libxml2-dev 
+      
 # Install subread 
 WORKDIR /usr/local/ 
 RUN wget http://heanet.dl.sourceforge.net/project/subread/subread-1.5.1/subread-1.5.1-source.tar.gz 
