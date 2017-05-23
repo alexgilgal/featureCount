@@ -21,7 +21,7 @@ RUN apt-get update --fix-missing\
       
 # Install subread 
 WORKDIR /usr/local/ 
-RUN wget https://sourceforge.net/projects/subread/files/subread-1.5.2/subread-1.5.2-source.tar.gz/download 
+RUN wget https://downloads.sourceforge.net/project/subread/subread-1.5.2/subread-1.5.2-source.tar.gz?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fsubread%2Ffiles%2Fsubread-1.5.2%2F&ts=1495541998&use_mirror=kent 
 RUN tar -xzvf subread-1.5.2-source.tar.gz
 WORKDIR /usr/local/subread-1.5.2-source/src 
 RUN make -f Makefile.Linux 
