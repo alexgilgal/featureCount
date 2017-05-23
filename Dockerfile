@@ -1,13 +1,14 @@
 ############################################################ 
 # Dockerfile to build subread-1.5.1 container images 
-# Based on Ubuntu ############################################################ 
-# Set the base image to Ubuntu 
+# Based on Ubuntu  
+# Set the base image to r-base:3.3.2 
+############################################################
 
 FROM r-base:3.3.2 
 
 # Install compiler 
 
-RUN apt-get update \
+RUN apt-get update --fix-missing\
     && apt-get install -y \
         build-essential \
         gcc-multilib \
@@ -20,11 +21,11 @@ RUN apt-get update \
       
 # Install subread 
 WORKDIR /usr/local/ 
-RUN wget https://sourceforge.net/projects/subread/files/subread-1.5.1/subread-1.5.1-source.tar.gz/download 
-RUN tar xzf subread-1.5.1-source.tar.gz 
-WORKDIR /usr/local/subread-1.5.1-source/src 
+RUN wget https://sourceforge.net/projects/subread/files/subread-1.5.2/subread-1.5.2-source.tar.gz/download 
+RUN tar -xzvf subread-1.5.2-source.tar.gz
+WORKDIR /usr/local/subread-1.5.2-source/src 
 RUN make -f Makefile.Linux 
-RUN ln -s /usr/local/subread-1.5.1-source/bin/* /usr/local/bin
+RUN ln -s /usr/local/subread-1.5.2-source/bin/* /usr/local/bin
 
 
 # Cleanup
@@ -32,3 +33,4 @@ RUN apt-get clean
 
 # Default command to execute at startup of the container
 CMD cd /home/
+
