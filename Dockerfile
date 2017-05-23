@@ -20,7 +20,7 @@ RUN apt-get update \
       
 # Install subread 
 WORKDIR /usr/local/ 
-RUN wget http://heanet.dl.sourceforge.net/project/subread/subread-1.5.1/subread-1.5.1-source.tar.gz 
+RUN wget https://sourceforge.net/projects/subread/files/subread-1.5.1/subread-1.5.1-source.tar.gz/download 
 RUN tar xzf subread-1.5.1-source.tar.gz 
 WORKDIR /usr/local/subread-1.5.1-source/src 
 RUN make -f Makefile.Linux 
