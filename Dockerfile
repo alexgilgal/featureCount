@@ -7,12 +7,16 @@ FROM r-base:3.3.2
 
 # Install compiler 
 
-RUN apt-get install --yes \ 
-      build-essential \ 
-      gcc-multilib \ 
-      apt-utils \ 
-      zlib1g-dev \
-      libxml2-dev 
+RUN apt-get update \
+    && apt-get install -y \
+        build-essential \
+        gcc-multilib \
+        apt-utils \
+        zlib1g-dev \
+        libxml2-dev \
+        curl \
+        libncurses5-dev
+        
       
 # Install subread 
 WORKDIR /usr/local/ 
